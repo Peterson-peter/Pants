@@ -6,6 +6,7 @@ import email
 from email.mime.multipart import MIMEMultipart
 from email.mime.text import MIMEText
 import smtplib
+import os
 
 def get_current_price():
     url = "http://www.levi.com/US/en_US/category/sale/men/itemtype/jeans/waist/36/length/29/"
