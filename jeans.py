@@ -58,16 +58,19 @@ def send_email():
     msg.attach(parts)
     s.ehlo() # Hostname to send for this command defaults to the fully qualified domain name of the local host.
     s.starttls() #Puts connection to SMTP server in TLS mode
-    s.login('ptp_is@hotmail.com', '')
+    s.login('ptp_is@hotmail.com', os.environ["email"])
     s.sendmail("ptp_is@hotmail.com","ptp_is@hotmail.com", msg.as_string())
     s.quit()
 
 def main():
     while True:
+	print "starting"
         current = get_current_price()
+	print "found "+ len(current['name']) + " items"
         sleep(21600)
         new = get_current_price()
         if current != new:
+            print "found new items"
             write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'])
             send_email()
             current = new
