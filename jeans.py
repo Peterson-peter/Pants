@@ -65,17 +65,20 @@ def send_email():
 
 def main():
     while True:
-	print "starting"
+	Z = 1
+	print "starting round: " + str(Z)
         current = get_current_price()
 	print "found "+ str(len(current['name'])) + " items"
         sleep(21600)
         new = get_current_price()
+	Z = Z + 1
         if current != new:
             print "found new items"
             write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'])
             send_email()
             current = new
-
+	    os.remove("emailtext.html")
+	    print "File removed"
 
 if __name__ == '__main__':
     main()
