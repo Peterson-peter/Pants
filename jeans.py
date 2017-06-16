@@ -66,7 +66,7 @@ def main():
     while True:
 	print "starting"
         current = get_current_price()
-	print "found "+ len(current['name']) + " items"
+	print "found "+ str(len(current['name'])) + " items"
         sleep(21600)
         new = get_current_price()
         if current != new:
