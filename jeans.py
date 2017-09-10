@@ -50,7 +50,7 @@ def write_emailfile(name, color, salePrices,OrgPrices):
 def send_email():
     #msg = email.message_from_string()
     msg = MIMEMultipart('alternative')
-    msg['From'] = "Jeans_checker@hotmail.com"
+    msg['From'] = "ptp_is@Hotmail.com"
     msg['To'] = "ptp_is@Hotmail.com"
     msg['Subject'] = "New Jeans on sale"
     s = smtplib.SMTP("smtp.live.com",587)
