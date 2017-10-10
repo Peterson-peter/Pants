@@ -69,10 +69,10 @@ def main():
     print "got prices"
     if os.path.isfile("current.html"):
         print "something is already present"
-        old = open(current.html).read()
+        old = open("current.html").read()
         print "read old file" + str(len(old)) + "items"
         write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],"new.html")
-        new = open(new.html).read
+        new = open("new.html").read
         print "read new file" + str(len(old)) + "items"
         if new != old:
             print "They don't match"
