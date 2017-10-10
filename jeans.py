@@ -67,7 +67,7 @@ def main():
     print "starting"
     new = get_current_price()
     print "got prices"
-    if os.path.isfile(current.html):
+    if os.path.isfile("current.html"):
         print "something is already present"
         old = open(current.html).read()
         print "read old file" + str(len(old)) + "items"
