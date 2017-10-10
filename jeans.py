@@ -79,7 +79,7 @@ def main():
             sendmail()
             print "sent email"
     else:
-        print "didn't find anything, sending email"
+        print "didn't find a starting file, writeing current"
         write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],"current.html")
 
 if __name__ == '__main__':
