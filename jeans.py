@@ -78,6 +78,8 @@ def main():
             print "They don't match"
             send_email()
             print "sent email"
+        if new == old:
+            os.remove("new.html")
     else:
         print "didn't find a starting file, writeing current"
         write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],"current.html")
