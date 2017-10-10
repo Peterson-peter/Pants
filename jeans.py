@@ -18,9 +18,9 @@ def get_current_price():
     OrgPrices = tree.xpath('//span[@class="pWas2"]/text()')
     return {"name":name, "color":color, "salePrices":salePrices, "OrgPrices":OrgPrices}
 
-def write_emailfile(name, color, salePrices,OrgPrices):
+def write_emailfile(name, color, salePrices,OrgPrices,filename):
     z = 0
-    with open("emailtext.html","a") as emailfile:
+    with open(filename,"a") as emailfile:
         emailfile.write("<html><head></head><body><table>")
         emailfile.write("<tr><th>Name</th><th>Color</th><th>Sale Price</th><th>Org Price</th></tr>")
         while z != len(name):
@@ -54,7 +54,7 @@ def send_email():
     msg['To'] = "ptp_is@Hotmail.com"
     msg['Subject'] = "New Jeans on sale"
     s = smtplib.SMTP("smtp.live.com",587)
-    html = open('emailtext.html').read()
+    html = open('new.html').read()
     parts = MIMEText(html, 'html')
     msg.attach(parts)
     s.ehlo() # Hostname to send for this command defaults to the fully qualified domain name of the local host.
@@ -64,21 +64,15 @@ def send_email():
     s.quit()
 
 def main():
-    while True:
-	Z = 1
-	print "starting round: " + str(Z)
-        current = get_current_price()
-	print "found "+ str(len(current['name'])) + " items"
-        sleep(21600)
         new = get_current_price()
-	Z = Z + 1
-        if current != new:
-            print "found new items"
-            write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'])
-            send_email()
-            current = new
-	    os.remove("emailtext.html")
-	    print "File removed"
+        if os.path.isfile(current.html):
+            old = open(current.html).read()
+            write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],new.html)
+            new = open(new.html).read
+            if new != old:
+                sendmail()
+        else:
+            write_emailfile(current['name'],current['color'],current['salePrices'],current['OrgPrices'],current.html)
 
 if __name__ == '__main__':
     main()
