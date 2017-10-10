@@ -72,11 +72,11 @@ def main():
         old = open("current.html").read()
         print "read old file" + str(len(old)) + "items"
         write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],"new.html")
-        new = open("new.html").read
+        new = open("new.html").read()
         print "read new file" + str(len(old)) + "items"
         if new != old:
             print "They don't match"
-            sendmail()
+            send_email()
             print "sent email"
     else:
         print "didn't find a starting file, writeing current"
