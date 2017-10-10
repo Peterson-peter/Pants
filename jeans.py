@@ -64,15 +64,23 @@ def send_email():
     s.quit()
 
 def main():
-        new = get_current_price()
-        if os.path.isfile(current.html):
-            old = open(current.html).read()
-            write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],new.html)
-            new = open(new.html).read
-            if new != old:
-                sendmail()
-        else:
-            write_emailfile(current['name'],current['color'],current['salePrices'],current['OrgPrices'],current.html)
+    print "starting"
+    new = get_current_price()
+    print "got prices"
+    if os.path.isfile(current.html):
+        print "something is already present"
+        old = open(current.html).read()
+        print "read old file" + str(len(old)) + "items"
+        write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],new.html)
+        new = open(new.html).read
+        print "read new file" + str(len(old)) + "items"
+        if new != old:
+            print "They don't match"
+            sendmail()
+            print "sent email"
+    else:
+        print "didn't find anything, sending email"
+        write_emailfile(current['name'],current['color'],current['salePrices'],current['OrgPrices'],current.html)
 
 if __name__ == '__main__':
     main()
