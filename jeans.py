@@ -80,7 +80,7 @@ def main():
             print "sent email"
     else:
         print "didn't find anything, sending email"
-        write_emailfile(current['name'],current['color'],current['salePrices'],current['OrgPrices'],"current.html")
+        write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],"current.html")
 
 if __name__ == '__main__':
     main()
