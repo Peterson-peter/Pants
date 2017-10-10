@@ -79,6 +79,7 @@ def main():
             send_email()
             print "sent email"
         if new == old:
+            print "they match deleting new"
             os.remove("new.html")
     else:
         print "didn't find a starting file, writeing current"
