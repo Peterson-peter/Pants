@@ -71,7 +71,7 @@ def main():
         print "something is already present"
         old = open(current.html).read()
         print "read old file" + str(len(old)) + "items"
-        write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],new.html)
+        write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],"new.html")
         new = open(new.html).read
         print "read new file" + str(len(old)) + "items"
         if new != old:
@@ -80,7 +80,7 @@ def main():
             print "sent email"
     else:
         print "didn't find anything, sending email"
-        write_emailfile(current['name'],current['color'],current['salePrices'],current['OrgPrices'],current.html)
+        write_emailfile(current['name'],current['color'],current['salePrices'],current['OrgPrices'],"current.html")
 
 if __name__ == '__main__':
     main()
