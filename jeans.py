@@ -77,6 +77,7 @@ def main():
         if new != old:
             print "They don't match"
             send_email()
+            os.rename("new.html","current.html")
             print "sent email"
         if new == old:
             print "they match deleting new"
