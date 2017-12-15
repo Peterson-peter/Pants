@@ -1,4 +1,4 @@
-at#!/usr/bin/env python
+#!/usr/bin/env python
 from lxml import html
 import requests
 from time import sleep
@@ -73,7 +73,7 @@ def main():
         print "read old file" + str(len(old)) + "items"
         write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],"new.html")
         new = open("new.html").read()
-        print "read new file" + str(len(old)) + "items"
+        print "read new file" + str(len(new)) + "items"
         if new != old:
             print "They don't match"
             send_email()
