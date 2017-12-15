@@ -95,8 +95,5 @@ def main():
         print "didn't find a starting file, writeing current"
         write_emailfile(current_shoes,"current.html")
 
-
-
-
-if __name__ == __main__:
+if __name__ == '__main__':
     main()
