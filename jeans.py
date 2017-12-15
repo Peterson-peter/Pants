@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+at#!/usr/bin/env python
 from lxml import html
 import requests
 from time import sleep
@@ -24,11 +24,11 @@ def write_emailfile(name, color, salePrices,OrgPrices,filename):
         emailfile.write("<html><head></head><body><table>")
         emailfile.write("<tr><th>Name</th><th>Color</th><th>Sale Price</th><th>Org Price</th></tr>")
         while z != len(name):
-            if float(salePrices[z].encode('utf-8').split("$")[1]) < 15:
+            if float(salePrices[z].encode('utf-8').split("$")[1]) / float(OrgPrices[z].encode('utf-8').split("$")[1]) < .50:
                 emailfile.write("<tr bgcolor='#FF0000'>")
-            elif float(salePrices[z].encode('utf-8').split("$")[1]) < 20:
+            elif float(salePrices[z].encode('utf-8').split("$")[1]) / float(OrgPrices[z].encode('utf-8').split("$")[1]) < .70:
                 emailfile.write("<tr bgcolor='#FFFF00'>")
-            elif float(salePrices[z].encode('utf-8').split("$")[1]) / float(OrgPrices[z].encode('utf-8').split("$")[1]) > .75:
+            elif float(salePrices[z].encode('utf-8').split("$")[1]) / float(OrgPrices[z].encode('utf-8').split("$")[1]) < .75:
                 emailfile.write("<tr bgcolor='#00FF00'>")
             else:
                 emailfile.write("<tr>")
