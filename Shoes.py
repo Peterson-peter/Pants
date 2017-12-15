@@ -76,24 +76,24 @@ def main():
     print("starting")
     current_shoes = get_current_shoes()
     print("got current prices")
-        if os.path.isfile("current.html"):
-            print "something is already present"
-            old = open("current.html").read()
-            print "read old file" + str(len(old)) + "items"
-            write_emailfile(current_shoes,"new.html")
-            new = open("new.html").read()
-            print "read new file" + str(len(old)) + "items"
-            if new != old:
-                print "They don't match"
-                send_email()
-                os.rename("new.html","current.html")
-                print "sent email"
-            if new == old:
-                print "they match deleting new"
-                os.remove("new.html")
-        else:
-            print "didn't find a starting file, writeing current"
-            write_emailfile(current_shoes,"current.html")
+    if os.path.isfile("current.html"):
+        print "something is already present"
+        old = open("current.html").read()
+        print "read old file" + str(len(old)) + "items"
+        write_emailfile(current_shoes,"new.html")
+        new = open("new.html").read()
+        print "read new file" + str(len(old)) + "items"
+        if new != old:
+            print "They don't match"
+            send_email()
+            os.rename("new.html","current.html")
+            print "sent email"
+        if new == old:
+            print "they match deleting new"
+            os.remove("new.html")
+    else:
+        print "didn't find a starting file, writeing current"
+        write_emailfile(current_shoes,"current.html")
 
 
 
