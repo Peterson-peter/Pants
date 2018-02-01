@@ -76,7 +76,9 @@ def main():
         print "read new file" + str(len(new)) + "items"
         if new != old:
             print "They don't match"
-            send_email()
+            if '#00FF00' in new:
+                print "something is red"
+                send_email()
             os.rename("new.html","current.html")
             print "sent email"
         if new == old:
