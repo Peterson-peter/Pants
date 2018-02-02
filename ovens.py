@@ -77,7 +77,7 @@ def main():
     while i < len(prices):
         print("found price: $" + prices[i])
         prices[i] = int(prices[i])
-        if prices[i] != base:
+        if prices[i] < base:
             send_email()
             break
         i += 1
