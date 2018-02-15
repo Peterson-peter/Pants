@@ -71,7 +71,7 @@ def get_bb():
     return response.text.split('"currentPrice":')[1][:4].encode('ascii','replace')
 
 def main():
-    base = 1979
+    base = 1757
     prices = [get_ajm(), get_hd(), get_sears(), get_frys(), get_bb()]
     i=0
     while i < len(prices):
