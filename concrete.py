@@ -33,7 +33,8 @@ def send_email():
 
 
 def get_hd(url):
-    response = requests.get(url)
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+    response = requests.get(url, headers=headers)
     tree = html.fromstring(response.content)
     price = tree.xpath('//span[@class="pReg"]/text()')
     return price[0].split("$")[1][:4]
