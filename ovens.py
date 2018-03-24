@@ -1,12 +1,5 @@
 #!/bin/python
 
-import requests
-from lxml import html
-import email
-from email.mime.multipart import MIMEMultipart
-from email.mime.text import MIMEText
-import smtplib
-import os
 
 AJM = 'https://www.ajmadison.com/cgi-bin/ajmadison/NV51K6650SS.html'
 HD = 'https://www.homedepot.com/p/Samsung-30-in-Single-Electric-Wall-Oven-Self-Cleaning-with-Dual-Convection-in-Stainless-NV51K6650SS/300359599'
@@ -45,7 +38,8 @@ def get_ajm():
     return response.text.split('"price_in_cart_signed_in":')[1][:4].encode('ascii','replace')
 
 def get_hd():
-    page = requests.get(HD)
+    headers = {'User-Agent': 'Mozilla/5.0 (Macintosh; Intel Mac OS X 10_11_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/50.0.2661.102 Safari/537.36'}
+    page = requests.get(HD,headers=headers)
     tree = html.fromstring(page.content)
     print ("Fetching HD")
     HD_price = tree.xpath('//span[@class="price__dollars"]/text()')
