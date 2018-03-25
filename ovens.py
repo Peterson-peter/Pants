@@ -1,5 +1,13 @@
 #!/bin/python
 
+import requests
+from lxml import html
+import email
+from email.mime.multipart import MIMEMultipart
+from email.mime.text import MIMEText
+import smtplib
+import os
+
 
 AJM = 'https://www.ajmadison.com/cgi-bin/ajmadison/NV51K6650SS.html'
 HD = 'https://www.homedepot.com/p/Samsung-30-in-Single-Electric-Wall-Oven-Self-Cleaning-with-Dual-Convection-in-Stainless-NV51K6650SS/300359599'
