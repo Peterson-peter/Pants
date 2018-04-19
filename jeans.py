@@ -17,6 +17,7 @@ def get_current_price():
     while i < len(name):
         name[i].replace("\r\n\t\t\t\t\t","")
         name[i].replace("\u2122","")
+        i = i+1
     color = tree.xpath('//div[@class="color-name"]/text()')
     salePrices = tree.xpath('//span[@class="hard-sale"]/text()')
     OrgPrices = tree.xpath('//span[@class="regular"]/text()')
