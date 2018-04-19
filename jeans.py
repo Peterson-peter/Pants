@@ -72,10 +72,11 @@ def main():
     print "starting"
     new = get_current_price()
     print "got prices"
+    print(new)
     if os.path.isfile("current.html"):
         print "something is already present"
         old = open("current.html").read()
-        print "read old file" + str(len(old)) + "items"
+        print "read old file" + str(len(old)) + "items
         write_emailfile(new['name'],new['color'],new['salePrices'],new['OrgPrices'],"new.html")
         new = open("new.html").read()
         print "read new file" + str(len(new)) + "items"
