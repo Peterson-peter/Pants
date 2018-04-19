@@ -12,10 +12,14 @@ def get_current_price():
     url = "https://www.levi.com/US/en_US/sale/mens-sale/jeans/c/levi_clothing_men_sale_jeans_us/facets/waist/36/length/29"
     page = requests.get(url)
     tree = html.fromstring(page.content)
-    name = tree.xpath('//p[@class="name"]/text()')
-    color = tree.xpath('//p[@class="finish"]/text()')
-    salePrices = tree.xpath('//span[@class="pSale"]/text()')
-    OrgPrices = tree.xpath('//span[@class="pWas2"]/text()')
+    name = tree.xpath('//a[@class="name"]/text()')
+    i = 0
+    while i < len(name):
+        name[i].replace("\r\n\t\t\t\t\t","")
+        name[i].replace("\u2122","")
+    color = tree.xpath('//div[@class="color-name"]/text()')
+    salePrices = tree.xpath('//span[@class="hard-sale"]/text()')
+    OrgPrices = tree.xpath('//span[@class="regular"]/text()')
     return {"name":name, "color":color, "salePrices":salePrices, "OrgPrices":OrgPrices}
 
 def write_emailfile(name, color, salePrices,OrgPrices,filename):
