@@ -29,7 +29,7 @@ def write_emailfile(name, color, salePrices,OrgPrices,filename):
     with open(filename,"a") as emailfile:
         emailfile.write("<html><head></head><body><table>")
         emailfile.write("<tr><th>Name</th><th>Color</th><th>Sale Price</th><th>Org Price</th></tr>")
-        while z != len(name):
+        while z != len(salePrices):
             if float(salePrices[z].split("$")[1]) / float(OrgPrices[z].split("$")[1]) < .50:
                 emailfile.write("<tr bgcolor='#FF0000'>")
             elif float(salePrices[z].split("$")[1]) / float(OrgPrices[z].split("$")[1]) < .70:
