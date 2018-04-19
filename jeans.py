@@ -9,7 +9,7 @@ import smtplib
 import os
 
 def get_current_price():
-    url = "http://www.levi.com/US/en_US/category/sale/men/itemtype/jeans/waist/36/length/29/"
+    url = "https://www.levi.com/US/en_US/sale/mens-sale/jeans/c/levi_clothing_men_sale_jeans_us/facets/waist/36/length/29"
     page = requests.get(url)
     tree = html.fromstring(page.content)
     name = tree.xpath('//p[@class="name"]/text()')
