@@ -38,19 +38,19 @@ def write_emailfile(name, color, salePrices,OrgPrices,filename):
                 emailfile.write("<tr bgcolor='#00FF00'>")
             else:
                 emailfile.write("<tr>")
-                emailfile.write("<td>")
-                emailfile.write(name[z])
-                emailfile.write("</td>")
-                emailfile.write("<td>")
-                emailfile.write(color[z])
-                emailfile.write("</td>")
-                emailfile.write("<td>")
-                emailfile.write(salePrices[z])
-                emailfile.write("</td>")
-                emailfile.write("<td>")
-                emailfile.write(OrgPrices[z])
-                emailfile.write("</td></tr>")
-                z = z + 1
+            emailfile.write("<td>")
+            emailfile.write(name[z])
+            emailfile.write("</td>")
+            emailfile.write("<td>")
+            emailfile.write(color[z])
+            emailfile.write("</td>")
+            emailfile.write("<td>")
+            emailfile.write(salePrices[z])
+            emailfile.write("</td>")
+            emailfile.write("<td>")
+            emailfile.write(OrgPrices[z])
+            emailfile.write("</td></tr>")
+            z = z + 1
         emailfile.write("</table></body></html>")
 
 def send_email():
