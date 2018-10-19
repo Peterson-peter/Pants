@@ -74,7 +74,7 @@ def get_bb():
 
 def main():
     base = 1757
-    prices = [get_ajm(), get_hd(), get_sears(), get_frys(), get_bb()]
+    prices = [get_ajm(), get_hd(), get_sears(), get_frys()]
     i=0
     while i < len(prices):
         print("found price: $" + prices[i])
